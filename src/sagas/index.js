@@ -4,8 +4,8 @@ function randomFunction() {
   return true;
 }
 
-export function* incrementAsync() {
-  for (let i = 0; i < 10000; i++) {
+export function* attemptToIncrement() {
+  for (let i = 0; i < 5000; i++) {
     console.log("Before", i);
     yield call(randomFunction);
     console.log("After", i);
@@ -15,5 +15,5 @@ export function* incrementAsync() {
 }
 
 export default function* rootSaga() {
-  yield takeEvery("START_FOR_LOOP", incrementAsync);
+  yield takeEvery("START_FOR_LOOP", attemptToIncrement);
 }
